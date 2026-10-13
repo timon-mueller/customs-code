@@ -1,0 +1,22 @@
+run the scripts by:
+python -m tools.inference --model_name roberta_baseline_test_2026-06-17_22-39 --epoch 20 --text "apple"
+
+    python -m tools.train
+
+
+python tools/inference.py \                                                                                                                                                                        ─╯
+  --model_name dual_encoder_v1 \
+  --epoch 1 \
+  --mode single --text "apple"
+
+python tools/inference.py \                                                                                                                                                                        ─╯
+  --model_name dual_encoder_v1 \
+  --epoch 19 \
+  --mode single --text "apple"
+
+python tools/inference.py \
+  --model_name dual_encoder_freeze_6_2026-06-26_16-54 \
+  --epoch 21 \
+  --mode test_split
+
+tensorboard --logdir models/checkpoints/dual_encoder_v1

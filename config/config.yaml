@@ -1,0 +1,23 @@
+dataset:
+  example_data_dir: "dataset/example_data"
+
+model:
+  name: "dual_encoder" #"roberta_mapping"
+  pretrained_backbone: "xlm-roberta-base"
+  freeze_embeddings: true
+  freeze_layers: 6       # 0 (freeze none), 12 (freeze all)
+
+training:
+  run_name: "dual_encoder_lr1e-4_decreasing"
+  batch_size: 64
+  epochs: 25
+  learning_rate: 0.0001
+  # we can try different opimizer
+  
+  # --- NEW SETTINGS FOR DATA SPLITTING ---
+  seed: 42
+  split_ratios: [0.8, 0.1, 0.1]  # Train, Validation, Test
+
+semantic_search:
+  model_name: "all-MiniLM-L6-v2" # sentence-transformers default models work best here
+  top_k: 10
